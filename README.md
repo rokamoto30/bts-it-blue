@@ -55,3 +55,24 @@ Save – Save the step/speed values into the DB, display in view (both values ar
 Cancel – clear the Step/Speed text boxes
 Delete – Delete the highlighted entry (validate that if nothing is highlighted – warn user)
 -->
+
+# Technical Spec:
+- Create a RESTful web service 
+-- One end point for Finder
+<!-- 
+-- One end point for Maintenance 
+-->
+- All logic should be on the server side
+  - Save (Finder) – compute distance
+  - Delete (Finder) – compute distance
+<!--
+  - Save (Maintenance) – Save to DB
+  - Delete (Maintenance) – Delete from DB
+-->
+- Loading the Finder tab – refresh the values from the combo – load from DB
+- Logic should be implemented using the layered architecture as in the Sample Project
+<!--
+DAO – should be package protected
+Internal Service – in same package as DAO
+-->
+
