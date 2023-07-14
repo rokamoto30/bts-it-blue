@@ -75,4 +75,6 @@ Delete – Delete the highlighted entry (validate that if nothing is highlighted
 DAO – should be package protected
 Internal Service – in same package as DAO
 -->
+# Mock
+![mock](https://github.com/zhivko-dm/bts-it/blob/main/mock.PNG?raw=true)
 
