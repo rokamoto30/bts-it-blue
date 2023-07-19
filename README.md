@@ -37,11 +37,11 @@ Utilize existing in-memory database to manage/maintain tables that will store th
 
 ### Implement the following actions using the architecture layers from the sample project
 #### Finder tab:
-**Save** - Save the details into the table on the left (don’t persist to DB) Compute the distance based on entries in table to Treasure and display value under the table
+**Save** - Save the details and update the table on the left. Compute the distance to the Treasure based on the new set of records and display the value under the table
 
 **Cancel** – Clear any entries and default the combos to the 1st entry
 
-**Delete** - Remove the selected entry from the table on the left
+**Delete** - Remove the selected entry from the database and updates the records in the table.
 
 **Rules** - Compute the distance based on entries in table to Treasure and display value under the table. 
 
