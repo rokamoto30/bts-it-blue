@@ -76,5 +76,5 @@ DAO – should be package protected
 Internal Service – in same package as DAO
 -->
 # Mock
-![mock](https://github.com/zhivko-dm/bts-it/blob/main/mock.PNG?raw=true)
+![mock](https://raw.githubusercontent.com/zhivko-dm/angularProject/master/mock.png)
 
