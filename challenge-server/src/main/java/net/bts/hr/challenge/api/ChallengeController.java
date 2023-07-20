@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.bts.hr.challenge.model.Speed;
 import net.bts.hr.challenge.model.WalkedSteps;
+import net.bts.hr.challenge.service.CalcService;
 import net.bts.hr.challenge.service.ChallengeService;
 
 @RestController()
@@ -17,6 +18,9 @@ public class ChallengeController {
 
 	@Autowired
 	ChallengeService service;
+	
+	@Autowired
+	CalcService calcService;
 
 	@GetMapping("/speed-list")
 	public List<Speed> getSpeedList() {
@@ -31,5 +35,11 @@ public class ChallengeController {
 	@GetMapping("/step/get")
 	public List<WalkedSteps> getSteps() {
 		return service.getSteps();
+	}
+	
+	@GetMapping("total")
+	public String getTotalDistance() {
+		return calcService.printTreasureLocation();
+		
 	}
 }

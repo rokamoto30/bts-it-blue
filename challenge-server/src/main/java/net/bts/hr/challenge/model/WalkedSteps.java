@@ -27,6 +27,17 @@ public class WalkedSteps {
 
 	@Column(name = "duration_minutes")
 	private Integer durationMinutes;
+	
+	
+
+	public WalkedSteps(Integer id, String speedType, String speedDirection, Integer durationHours, Integer durationMinutes) {
+		super();
+		this.id = id;
+		this.speedType = speedType;
+		this.speedDirection = speedDirection;
+		this.durationHours = durationHours;
+		this.durationMinutes = durationMinutes;
+	}
 
 	public Integer getId() {
 		return id;
@@ -67,4 +78,12 @@ public class WalkedSteps {
 	public void setDurationMinutes(Integer durationMinutes) {
 		this.durationMinutes = durationMinutes;
 	}
+
+	@Override
+	public String toString() {
+		return "WalkedSteps [id=" + id + ", speedType=" + speedType + ", speedDirection=" + speedDirection
+				+ ", durationHours=" + durationHours + ", durationMinutes=" + durationMinutes + "]";
+	}
+	
+	
 }
