@@ -31,6 +31,11 @@ public class ChallengeService {
 		return speedList;
 	}
 	
+	public List<String> getDirections() {
+		return directions;
+	}
+	
+	
 	public WalkedSteps saveStep(WalkedSteps walkStep) throws InvalidException {
 		walkStep.setId(null); //reset id for auto increment
 				
@@ -62,6 +67,14 @@ public class ChallengeService {
 			throw new InvalidException("step not found");
 		}
 		return stepRepo.save(step);
+	}
+	
+	public WalkedSteps saveUpdateStep(WalkedSteps step) throws InvalidException { // if step exists update, otherwise save (can always use id 0 to save)
+		if (stepRepo.findById(step.getId()).isEmpty()) {
+			return saveStep(step);
+		} else {
+			return updateStep(step);
+		}
 	}
 	
 	public void deleteStep(WalkedSteps step) throws InvalidException {

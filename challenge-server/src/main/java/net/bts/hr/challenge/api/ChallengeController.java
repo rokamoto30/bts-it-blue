@@ -32,9 +32,19 @@ public class ChallengeController {
 		return service.getSpeedList();
 	}
 	
+	@GetMapping("/direction-list")
+	public List<String> getDirections() {
+		return service.getDirections();
+	}
+	
 	@PostMapping("/step/create")
 	public WalkedSteps saveStep(@Valid @RequestBody WalkedSteps walkedStep) throws InvalidException {
 		return service.saveStep(walkedStep);
+	}
+	
+	@PostMapping("/step/saveUpdate")
+	public WalkedSteps saveUpdateStep(@Valid @RequestBody WalkedSteps walkedStep) throws InvalidException {
+		return service.saveUpdateStep(walkedStep);
 	}
 	
 	@GetMapping("/step/get")
