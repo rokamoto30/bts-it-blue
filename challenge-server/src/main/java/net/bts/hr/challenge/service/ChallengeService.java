@@ -35,7 +35,6 @@ public class ChallengeService {
 		return directions;
 	}
 	
-	
 	public WalkedSteps saveStep(WalkedSteps walkStep) throws InvalidException {
 		walkStep.setId(null); //reset id for auto increment
 				
