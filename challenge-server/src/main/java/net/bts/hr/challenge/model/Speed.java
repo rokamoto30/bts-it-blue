@@ -24,7 +24,7 @@ public class Speed {
 	@Column(name = "speed_value")
 	private Double speedValue;
 	
-	
+	public Speed() {}
 
 	public Speed(Integer id, String speedType, String speedDescpription, Double speedValue) {
 		this.id = id;
