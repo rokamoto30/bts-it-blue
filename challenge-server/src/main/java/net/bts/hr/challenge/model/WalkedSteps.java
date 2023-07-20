@@ -5,7 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;  
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;  
 
 @Entity
 @Table(name = "walked_steps")
@@ -16,17 +18,32 @@ public class WalkedSteps {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotEmpty
 	@Column(name = "speed_type")
 	private String speedType;
 	
+	@NotEmpty
 	@Column(name = "speed_direction")
 	private String speedDirection;
 	
+	@Min(0)
 	@Column(name = "duration_hours")
 	private Integer durationHours;
-
+	
+	@Min(0)
 	@Column(name = "duration_minutes")
 	private Integer durationMinutes;
+	
+	public WalkedSteps() {}
+
+	public WalkedSteps(Integer id, String speedType, String speedDirection, Integer durationHours, Integer durationMinutes) {
+		super();
+		this.id = id;
+		this.speedType = speedType;
+		this.speedDirection = speedDirection;
+		this.durationHours = durationHours;
+		this.durationMinutes = durationMinutes;
+	}
 
 	public Integer getId() {
 		return id;
@@ -67,4 +84,12 @@ public class WalkedSteps {
 	public void setDurationMinutes(Integer durationMinutes) {
 		this.durationMinutes = durationMinutes;
 	}
+
+	@Override
+	public String toString() {
+		return "WalkedSteps [id=" + id + ", speedType=" + speedType + ", speedDirection=" + speedDirection
+				+ ", durationHours=" + durationHours + ", durationMinutes=" + durationMinutes + "]";
+	}
+	
+	
 }
