@@ -35,6 +35,13 @@ public class Cord {
 		this.y += cord.getY();
 		return this;
 	}
+
+	@Override
+	public String toString() {
+		return "Cord [x=" + x + ", y=" + y + "]";
+	}
+	
+	
 	
 	
 }
