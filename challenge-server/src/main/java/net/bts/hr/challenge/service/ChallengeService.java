@@ -3,6 +3,7 @@ package net.bts.hr.challenge.service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -39,7 +40,11 @@ public class ChallengeService {
 		
 		List<Speed> speeds = speedRepo.getSpeeds(); //validate speed
 		List<String> types = new ArrayList<>();
-		speeds.stream().map(speed -> types.add(speed.getSpeedType()));
+		types = speeds.stream().map(speed -> speed.getSpeedType()).collect(Collectors.toList());
+		
+		System.out.println(types);
+		System.out.println(walkStep.getSpeedType());
+		
 		if (!types.contains(walkStep.getSpeedType())) {
 			throw new InvalidException("not a valid speed type");
 		}
@@ -50,6 +55,21 @@ public class ChallengeService {
 	
 	public List<WalkedSteps> getSteps() {
 		return stepRepo.getSteps();
+	}
+	
+	public WalkedSteps updateStep(WalkedSteps step) throws InvalidException {
+		if (stepRepo.findById(step.getId()).isEmpty()) {
+			throw new InvalidException("step not found");
+		}
+		return stepRepo.save(step);
+	}
+	
+	public void deleteStep(WalkedSteps step) throws InvalidException {
+		if (stepRepo.findById(step.getId()).isEmpty()) {
+			throw new InvalidException("step not found");
+		}
+		stepRepo.deleteById(step.getId());
+		
 	}
 
 }
