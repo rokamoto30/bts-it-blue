@@ -17,7 +17,9 @@ import net.bts.hr.challenge.model.Speed;
 import net.bts.hr.challenge.model.WalkedSteps;
 import net.bts.hr.challenge.service.CalcService;
 import net.bts.hr.challenge.service.ChallengeService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin()
 @RestController()
 public class ChallengeController {
 
