@@ -96,6 +96,7 @@ public class CalcService {
 		return finalDirection;
 	}
 	
+	
 	public String printTreasureLocation() {
 		updateSpeedMap();
 
@@ -138,4 +139,6 @@ public class CalcService {
 		
 		return treasureLocation.toString();
 	}
+	
+	
 }

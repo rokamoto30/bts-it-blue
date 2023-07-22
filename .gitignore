@@ -25,5 +25,6 @@ replay_pid*
 
 .metadata/
 
-# ignore bins
+# added ignores
 bin/
+node_modules/

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ChallengeApplication<net.bts.hr>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "net.bts.hr.challenge.ChallengeApplication",
+            "projectName": "net.bts.hr",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
