@@ -46,6 +46,7 @@ public class ChallengeController {
 	
 	@PostMapping("/step/saveUpdate")
 	public WalkedSteps saveUpdateStep(@Valid @RequestBody WalkedSteps walkedStep) throws InvalidException {
+		System.out.println(walkedStep);
 		return service.saveUpdateStep(walkedStep);
 	}
 	

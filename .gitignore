@@ -27,4 +27,4 @@ replay_pid*
 
 # added ignores
 bin/
-node_moduels
+node_modules/
