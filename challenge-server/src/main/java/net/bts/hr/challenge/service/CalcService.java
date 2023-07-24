@@ -1,5 +1,6 @@
 package net.bts.hr.challenge.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +42,20 @@ public class CalcService {
 		
 		updateSpeedMap();
 	}
+
+	public List<Cord> getVectors() {
+		updateSpeedMap();
+		List<WalkedSteps> steps = stepRepo.getSteps();
+		List<Cord> cords = new ArrayList<Cord>();
+		for (WalkedSteps step : steps) {
+			String direciton = step.getSpeedDirection();
+			Double speed = speedMap.get(step.getSpeedType());
+			Integer hours = step.getDurationHours();
+			Integer mins = step.getDurationMinutes();
+			cords.add(speedToDistance(direciton, speed, hours,mins)); 
+		}
+		return cords;
+	}
 	
 	public void updateSpeedMap() {
 		List<Speed> speeds = speedRepo.getSpeeds();
@@ -66,7 +81,7 @@ public class CalcService {
 		} return num;
 	}
 	
-	public  Cord speedToDistance(String direction, Double speed, Integer hours, Integer mins) {
+	public Cord speedToDistance(String direction, Double speed, Integer hours, Integer mins) {
 		int totalMins = HOUR_TO_MIN * hours + mins; // total minutes
 		
 		Double speedMins = speed / HOUR_TO_MIN; // speed in miles per minute

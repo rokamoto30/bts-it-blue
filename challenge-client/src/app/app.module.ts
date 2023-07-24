@@ -19,12 +19,14 @@ import {MatTableModule} from '@angular/material/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ApiService } from './service/api.service';
 import { StepDataSource } from './service/step.dataSource';
+import { PlotComponent } from './components/plot/plot.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    FormComponent,
+    PlotComponent
   ],
   imports: [
     BrowserModule,

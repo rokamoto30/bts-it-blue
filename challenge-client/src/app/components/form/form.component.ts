@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/service/api.service';
 import { Step } from 'src/app/model/step.model';
 import { StepDataSource } from 'src/app/service/step.dataSource';
+import { PlotComponent } from '../plot/plot.component';
 
 @Component({
   selector: 'app-form',
@@ -10,7 +11,6 @@ import { StepDataSource } from 'src/app/service/step.dataSource';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
   directions: string[] = [];
   speedDesc: string[] = [];
   descToType : Map<string, string> = new Map<string, string>();
@@ -30,12 +30,22 @@ export class FormComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'speedType', 'speedDirection', 'durationHours', 'durationMinutes' ];
 
+  // //plotting
+  // @ViewChild('canvas', {static:true}) myCanvas:  ElementRef;
+  // canvas : HTMLCanvasElement;
+  // context : CanvasRenderingContext2D;
+  // width : number;
+  // height : number;
 
   constructor(private service: ApiService, private fb: FormBuilder) { 
 
   }
 
   ngOnInit(): void {
+    // this.canvas = this.myCanvas.nativeElement;
+    // this.context = this.canvas.getContext('2d');
+    // this.width = this.canvas.width;
+    // this.height = this.canvas.height;
     this.sync();
   }
 
@@ -49,7 +59,24 @@ export class FormComponent implements OnInit {
       }));
     this.stepDataSource.loadSteps();
     this.service.getTotal().subscribe(res => this.total = res);
+
+    // // plotting
+    // this.plot();
   }
+
+  // plot() {
+  //   this.context.clearRect(0, 0, this.width, this.height);
+  //   let curPos: [number, number] = [this.width, this.height];
+  //   console.log(this.width)
+  //   console.log(this.height)
+  //   if (this.context) {
+  //     this.context.beginPath();
+  //     this.context.moveTo(curPos[0], curPos[0]);
+  //     console.log("plotting");
+  //     this.context.lineTo(0, 0);
+  //     this.context.fill();
+  //   }
+  // }
 
   onSave() {
     this.step = new Step(

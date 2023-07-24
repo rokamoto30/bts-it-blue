@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import {catchError} from 'rxjs/operators'
 import { Step } from '../model/step.model';
 import { StepInterface } from '../types/stepInterface';
+import { CordInterface } from '../types/cordInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,9 @@ export class ApiService {
   }
 
   //API SERVICE INIT
+  getVectors() :Observable<Object> {
+    return this.get("/vectors");
+  }
   getSpeeds() :Observable<Object> {
     return this.get("/speed-list");
   }

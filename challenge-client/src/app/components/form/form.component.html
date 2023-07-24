@@ -1,3 +1,7 @@
+<!-- <canvas #canvas class="canvas">
+    Fallback
+</canvas> -->
+
 <div class="leftDiv">
     <table mat-table [dataSource]="stepDataSource"  class="mat-elevation-z8 data-table">
 
@@ -77,7 +81,9 @@
             </mat-card-actions>
         </mat-card>
     </form>
+    <app-plot></app-plot>
 </div>
+
 
 <!-- <form [formGroup] = "stepForm" (ngSubmit)="onSubmit()">
     <select formControlName="speed">

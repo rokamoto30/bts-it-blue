@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import net.bts.hr.challenge.exception.InvalidException;
 import net.bts.hr.challenge.model.Speed;
 import net.bts.hr.challenge.model.WalkedSteps;
+import net.bts.hr.challenge.pojos.Cord;
 import net.bts.hr.challenge.service.CalcService;
 import net.bts.hr.challenge.service.ChallengeService;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,6 +29,11 @@ public class ChallengeController {
 	
 	@Autowired
 	CalcService calcService;
+
+	@GetMapping("/vectors")
+	public List<Cord> getVectors() {
+		return calcService.getVectors();
+	}
 
 	@GetMapping("/speed-list")
 	public List<Speed> getSpeedList() {
